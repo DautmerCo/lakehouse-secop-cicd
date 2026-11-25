@@ -1,0 +1,16 @@
+# Terraform: estado y archivos locales (nunca a Git)
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+
+# Python y dbt
+__pycache__/
+.venv/
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+
+# Datos descargados en local
+datos/
