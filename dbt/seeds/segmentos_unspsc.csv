@@ -1,0 +1,59 @@
+codigo_segmento,segmento,tipo_compra
+00,Sin clasificar,Sin clasificar
+10,Material vivo animal y vegetal,Bienes
+11,Materias primas minerales y textiles,Bienes
+12,Productos químicos,Bienes
+13,Resinas y cauchos,Bienes
+14,Papel y productos de papel,Bienes
+15,Combustibles y lubricantes,Bienes
+20,Maquinaria de minería y perforación,Bienes
+21,Maquinaria agrícola y forestal,Bienes
+22,Maquinaria de construcción,Bienes
+23,Maquinaria industrial,Bienes
+24,Equipos de manejo y almacenamiento de materiales,Bienes
+25,Vehículos y accesorios,Bienes
+26,Equipos de generación y distribución de energía,Bienes
+27,Herramientas y maquinaria general,Bienes
+30,Componentes y suministros de construcción,Bienes
+31,Componentes de manufactura,Bienes
+32,Componentes electrónicos,Bienes
+39,Equipos eléctricos y de iluminación,Bienes
+40,Equipos de distribución y acondicionamiento,Bienes
+41,Equipos de laboratorio y medición,Bienes
+42,Equipos y suministros médicos,Bienes
+43,Tecnologías de la información y telecomunicaciones,Bienes
+44,Equipos y suministros de oficina,Bienes
+45,"Equipos de impresión, fotografía y audiovisuales",Bienes
+46,Equipos de defensa y seguridad,Bienes
+47,Equipos y suministros de limpieza,Bienes
+48,Equipos de servicio de alimentos,Bienes
+49,Equipos deportivos y recreativos,Bienes
+50,Alimentos y bebidas,Bienes
+51,Medicamentos y productos farmacéuticos,Bienes
+52,Artículos domésticos y electrodomésticos,Bienes
+53,"Ropa, calzado y artículos personales",Bienes
+54,Relojes y joyería,Bienes
+55,Publicaciones impresas y electrónicas,Bienes
+56,Muebles y mobiliario,Bienes
+60,"Materiales educativos, artísticos y de juego",Bienes
+64,Instrumentos financieros,Bienes
+70,"Servicios agrícolas, pesqueros y forestales",Servicios
+71,"Servicios de minería, petróleo y gas",Servicios
+72,Servicios de construcción y mantenimiento,Servicios
+73,Servicios de producción industrial,Servicios
+76,Servicios de limpieza y aseo,Servicios
+77,Servicios medioambientales,Servicios
+78,Servicios de transporte y almacenamiento,Servicios
+80,"Servicios de gestión, profesionales y administrativos",Servicios
+81,"Servicios de ingeniería, investigación y tecnología",Servicios
+82,"Servicios editoriales, de diseño y artes gráficas",Servicios
+83,Servicios públicos y del sector público,Servicios
+84,Servicios financieros y de seguros,Servicios
+85,Servicios de salud,Servicios
+86,Servicios educativos y de formación,Servicios
+90,"Servicios de viajes, alimentación y entretenimiento",Servicios
+91,Servicios personales y domésticos,Servicios
+92,"Servicios de defensa, orden público y seguridad",Servicios
+93,Servicios políticos y de asuntos cívicos,Servicios
+94,Organizaciones y clubes,Servicios
+95,"Terrenos, edificios y estructuras",Servicios
