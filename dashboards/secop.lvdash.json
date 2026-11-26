@@ -1,0 +1,887 @@
+{
+  "datasets": [
+    {
+      "name": "934a91ff",
+      "displayName": "contratos",
+      "queryLines": [
+        "SELECT\r\n",
+        "  f.id_contrato,\r\n",
+        "  f.fecha_firma,\r\n",
+        "  d.anio                                  AS anio_firma,\r\n",
+        "  f.valor_contrato / 1e9                  AS valor_mm,      -- miles de millones de COP\r\n",
+        "  CAST(f.es_contratacion_directa AS INT)  AS es_directa,\r\n",
+        "  CASE WHEN f.es_contratacion_directa THEN 'Directa' ELSE 'Competitiva' END\r\n",
+        "                                          AS forma_adjudicacion,\r\n",
+        "  f.modalidad_de_contratacion             AS modalidad,\r\n",
+        "  f.tipo_de_contrato,\r\n",
+        "  f.estado_contrato,\r\n",
+        "  f.objeto_del_contrato                   AS objeto,\r\n",
+        "  f.url_proceso,\r\n",
+        "  e.nombre_entidad                        AS entidad,\r\n",
+        "  e.departamento,\r\n",
+        "  e.orden,\r\n",
+        "  p.id_proveedor,\r\n",
+        "  p.tipo_proveedor,\r\n",
+        "  p.nombre_proveedor                      AS proveedor,\r\n",
+        "  s.segmento,\r\n",
+        "  s.tipo_compra\r\n",
+        "FROM fct_contratos f\r\n",
+        "JOIN dim_entidad   e USING (codigo_entidad)\r\n",
+        "JOIN dim_proveedor p USING (id_proveedor)\r\n",
+        "JOIN dim_fecha     d ON d.fecha = f.fecha_firma\r\n",
+        "JOIN dim_segmento  s USING (codigo_segmento)"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "971246fb",
+      "displayName": "Panorama",
+      "layout": [
+        {
+          "widget": {
+            "name": "43538594",
+            "spec": {
+              "widgetType": "text",
+              "version": 1,
+              "encodings": {
+                "text": {
+                  "lines": [
+                    "# <span style=\"text-align:center;display:block;\">SECOP II Â· ContrataciÃ³n pÃºblica</span>\n",
+                    "\n",
+                    "#### <span style=\"text-align:center;display:block;\">*Contratos con actividad en SECOP II desde el 1 de octubre de 2026. ActualizaciÃ³n diaria.*</span>"
+                  ],
+                  "fields": []
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 12,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "5cbdaeb1",
+            "queries": [
+              {
+                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_anio_firma",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "anio_firma",
+                      "expression": "`anio_firma`"
+                    },
+                    {
+                      "name": "anio_firma_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "anio_firma",
+                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_anio_firma"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "792fc865",
+            "queries": [
+              {
+                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_departamento",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "departamento",
+                      "expression": "`departamento`"
+                    },
+                    {
+                      "name": "departamento_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "departamento",
+                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_departamento"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "c824df2b",
+            "queries": [
+              {
+                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_tipo_compra",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "tipo_compra",
+                      "expression": "`tipo_compra`"
+                    },
+                    {
+                      "name": "tipo_compra_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "tipo_compra",
+                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_tipo_compra"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "4a3b7dd4",
+            "queries": [
+              {
+                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_orden",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "orden",
+                      "expression": "`orden`"
+                    },
+                    {
+                      "name": "orden_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "version": 2,
+              "frame": {
+                "showTitle": true
+              },
+              "widgetType": "filter-single-select",
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "orden",
+                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_orden"
+                  }
+                ]
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "contratos",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "countdistinct(id_contrato)",
+                      "expression": "COUNT(DISTINCT `id_contrato`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\">Contratos</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(id_contrato)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "valor-contratado",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "sum(valor_mm)",
+                      "expression": "SUM(`valor_mm`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block\">Valor contratado (miles de millones COP)</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "sum(valor_mm)",
+                  "format": {
+                    "type": "number-currency",
+                    "currencyCode": "COP",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 3,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "contratacion-directa",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "avg(es_directa)",
+                      "expression": "AVG(`es_directa`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "showDescription": false,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\">% contrataciÃ³n directa</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "avg(es_directa)",
+                  "format": {
+                    "type": "number-percent",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 3,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "proveedores",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "countdistinct(id_proveedor)",
+                      "expression": "COUNT(DISTINCT `id_proveedor`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\">Proveedores</span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "counter",
+              "encodings": {
+                "value": {
+                  "fieldName": "countdistinct(id_proveedor)",
+                  "format": {
+                    "type": "number-plain",
+                    "abbreviation": "none",
+                    "decimalPlaces": {
+                      "type": "max",
+                      "places": 2
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 9,
+            "y": 3,
+            "width": 3,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "forma-de-adjudicacion",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "forma_adjudicacion",
+                      "expression": "`forma_adjudicacion`"
+                    },
+                    {
+                      "name": "count(id_contrato)",
+                      "expression": "COUNT(`id_contrato`)"
+                    },
+                    {
+                      "name": "tipo_compra",
+                      "expression": "`tipo_compra`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Forma de adjudicaciÃ³n</span></span>",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "mark": {
+                "layout": "percent-stack"
+              },
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "count(id_contrato)",
+                  "displayName": "Contratos",
+                  "scale": {
+                    "type": "quantitative",
+                    "domain": {
+                      "type": "per-facet"
+                    }
+                  }
+                },
+                "y": {
+                  "fieldName": "tipo_compra",
+                  "displayName": "Tipo Compra",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                },
+                "color": {
+                  "fieldName": "forma_adjudicacion",
+                  "displayName": "Forma AdjudicaciÃ³n",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "label": {
+                  "show": true,
+                  "text": {
+                    "fieldName": "count(id_contrato)",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "compact",
+                      "decimalPlaces": {
+                        "type": "max",
+                        "places": 2
+                      }
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 5,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "contratos-por-modalidad",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "count(id_contrato)",
+                      "expression": "COUNT(`id_contrato`)"
+                    },
+                    {
+                      "name": "modalidad",
+                      "expression": "`modalidad`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Contratos por modalidad</span></span>",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "count(id_contrato)",
+                  "displayName": "Contratos",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "modalidad",
+                  "displayName": "Modalidad",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                },
+                "label": {
+                  "show": true
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 5,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "valor-por-departamento",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "sum(valor_mm)",
+                      "expression": "SUM(`valor_mm`)"
+                    },
+                    {
+                      "name": "departamento",
+                      "expression": "`departamento`"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Valor por departamento</span></span>",
+                  "fields": []
+                }
+              },
+              "version": 3,
+              "widgetType": "bar",
+              "encodings": {
+                "x": {
+                  "fieldName": "sum(valor_mm)",
+                  "displayName": "Valor (miles de millones COP)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                },
+                "y": {
+                  "fieldName": "departamento",
+                  "displayName": "Departamento",
+                  "scale": {
+                    "type": "categorical",
+                    "sort": {
+                      "by": "x-reversed"
+                    }
+                  }
+                }
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 11,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "mayores-contratos-1",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "934a91ff",
+                  "fields": [
+                    {
+                      "name": "entidad",
+                      "expression": "`entidad`"
+                    },
+                    {
+                      "name": "proveedor",
+                      "expression": "`proveedor`"
+                    },
+                    {
+                      "name": "segmento",
+                      "expression": "`segmento`"
+                    },
+                    {
+                      "name": "modalidad",
+                      "expression": "`modalidad`"
+                    },
+                    {
+                      "name": "valor_mm",
+                      "expression": "`valor_mm`"
+                    },
+                    {
+                      "name": "fecha_firma",
+                      "expression": "`fecha_firma`"
+                    },
+                    {
+                      "name": "url_proceso",
+                      "expression": "`url_proceso`"
+                    }
+                  ],
+                  "disaggregated": true,
+                  "orders": [
+                    {
+                      "direction": "DESC",
+                      "expression": "`valor_mm`"
+                    }
+                  ]
+                }
+              }
+            ],
+            "spec": {
+              "frame": {
+                "showTitle": true,
+                "title": {
+                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Mayores contratos</span></span>",
+                  "fields": []
+                }
+              },
+              "version": 2,
+              "widgetType": "table",
+              "encodings": {
+                "columns": [
+                  {
+                    "fieldName": "entidad"
+                  },
+                  {
+                    "fieldName": "proveedor"
+                  },
+                  {
+                    "fieldName": "segmento"
+                  },
+                  {
+                    "fieldName": "modalidad"
+                  },
+                  {
+                    "fieldName": "valor_mm"
+                  },
+                  {
+                    "fieldName": "fecha_firma"
+                  },
+                  {
+                    "fieldName": "url_proceso"
+                  }
+                ],
+                "rowOrder": [
+                  {
+                    "by": "column-reversed",
+                    "field": {
+                      "index": 4
+                    }
+                  }
+                ]
+              },
+              "data": {
+                "queryName": "main_query"
+              }
+            }
+          },
+          "position": {
+            "x": 6,
+            "y": 11,
+            "width": 6,
+            "height": 6
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS",
+      "layoutVersion": "GRID_V1"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "canvasBackgroundColor": {
+        "light": "#E6E9EA",
+        "dark": "#1E2931"
+      },
+      "widgetBackgroundColor": {
+        "light": "#FFFFFF",
+        "dark": "#15181C"
+      },
+      "widgetBorderColor": {
+        "light": "#F3F5F6",
+        "dark": "#21292F"
+      },
+      "fontColor": {
+        "light": "#1A2127",
+        "dark": "#EEF0F2"
+      },
+      "selectionColor": {
+        "light": "#0E7AB9",
+        "dark": "#41ADEC"
+      },
+      "visualizationColors": [
+        "#A6CEE3",
+        "#1F78B4",
+        "#B2DF8A",
+        "#33A02C",
+        "#FB9A99",
+        "#E31A1C",
+        "#FDBF6F",
+        "#FF7F00",
+        "#CAB2D6",
+        "#6A3D9A",
+        "#FFFF99",
+        "#B15928"
+      ],
+      "widgetHeaderAlignment": "LEFT",
+      "fontFamily": "Inter",
+      "widgetPadding": 16,
+      "widgetMargin": 8,
+      "widgetCornerRadius": 16,
+      "widgetShadow": 50,
+      "continuousGradient": {
+        "lightMode": {
+          "fromCategoricalIndex": 0
+        },
+        "darkMode": {
+          "fromCategoricalIndex": 0
+        }
+      },
+      "fontSettings": {
+        "base": {
+          "fontFamily": "Inter",
+          "fontColor": {
+            "light": "#1A2127",
+            "dark": "#EEF0F2"
+          },
+          "fontSize": 14,
+          "fontWeight": 400
+        },
+        "widgetTitle": {
+          "fontSize": 16,
+          "fontWeight": 500
+        },
+        "widgetDescription": {
+          "fontSize": 14,
+          "fontWeight": 400
+        },
+        "fieldTitle": {
+          "textCase": "TEXT_CASE_UPPERCASE",
+          "fontColor": {
+            "light": "#31373D",
+            "dark": "#D6D8DA"
+          },
+          "fontSize": 13,
+          "fontWeight": 400
+        },
+        "fieldValue": {
+          "fontColor": {
+            "light": "#31373D",
+            "dark": "#D6D8DA"
+          },
+          "fontSize": 13,
+          "fontWeight": 400
+        }
+      },
+      "gridLineColor": {
+        "light": "#D6D7D8",
+        "dark": "#3C3E42"
+      },
+      "axisLineColor": {
+        "light": "#B0B4B6",
+        "dark": "#555E64"
+      }
+    },
+    "applyModeEnabled": false
+  }
+}
