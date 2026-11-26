@@ -15,8 +15,8 @@ jobs:
       run:
         working-directory: infra
     steps:
-      - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
+      - uses: actions/checkout@v7
+      - uses: hashicorp/setup-terraform@v4
         with:
           terraform_version: "1.17.2"
       - run: terraform fmt -check -recursive
@@ -27,8 +27,8 @@ jobs:
     name: Extracción · lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
       - run: pip install ruff==0.17.6
@@ -45,7 +45,7 @@ jobs:
       DBT_DATABRICKS_HTTP_PATH: ${{ secrets.DATABRICKS_HTTP_PATH }}
       DBT_DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Construir la imagen
         run: docker build -t secop-dbt:ci dbt
