@@ -12,3 +12,6 @@ secop:
     prod:
       <<: *databricks
       schema: secop_prod_silver
+    ci:
+      <<: *databricks
+      schema: secop_ci_silver

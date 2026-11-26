@@ -9,7 +9,7 @@ import gzip
 import io
 import json
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 import requests
 from databricks.sdk import WorkspaceClient
@@ -87,7 +87,7 @@ def main() -> None:
     ruta_marca = f"{base}/control/extraccion/marca_de_agua.json"
 
     desde = leer_marca(w, ruta_marca, args.desde_inicial)
-    corrida = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    corrida = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     carpeta = f"{base}/aterrizaje/contratos/corrida={corrida}"
     print(f"Extrayendo contratos con ultima_actualizacion >= {desde}")
 

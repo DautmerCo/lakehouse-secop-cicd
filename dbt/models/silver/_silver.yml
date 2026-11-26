@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: bronze
-    schema: "secop_{{ target.name }}_bronze"
+    schema: "secop_{{ 'dev' if target.name == 'ci' else target.name }}_bronze"
     tables:
       - name: contratos
         description: Contratos de SECOP II tal como llegan de la API, todo en texto.

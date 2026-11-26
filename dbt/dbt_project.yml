@@ -5,6 +5,7 @@ profile: secop
 model-paths: ["models"]
 macro-paths: ["macros"]
 test-paths: ["tests"]
+seed-paths: ["seeds"]
 
 models:
   secop:
@@ -12,3 +13,11 @@ models:
       +schema: silver
     gold:
       +schema: gold
+      +materialized: table
+
+seeds:
+  secop:
+    +schema: silver
+    segmentos_unspsc:
+      +column_types:
+        codigo_segmento: string   # para que "00" no se vuelva 0
