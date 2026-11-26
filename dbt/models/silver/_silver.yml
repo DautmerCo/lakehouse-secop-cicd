@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: "secop_{{ target.name }}_bronze"
+    tables:
+      - name: contratos
+        description: Contratos de SECOP II tal como llegan de la API, todo en texto.
+
+models:
+  - name: contratos
+    description: >
+      Una fila por contrato en su versión más reciente, con tipos, textos normalizados
+      y proveedores personas naturales sin nombre ni documento.
+    columns:
+      - name: id_contrato
+        description: Identificador del contrato en SECOP II.
+        data_tests: [unique, not_null]
+      - name: fecha_firma
+        data_tests: [not_null]
+      - name: valor_contrato
+        description: Valor del contrato en pesos colombianos.
+        data_tests: [not_null]
+      - name: id_proveedor
+        description: Código del proveedor en SECOP; no es su documento de identidad.
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: tipo_proveedor
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Persona jurídica', 'Persona natural', 'Sin definir']
+      - name: estado_contrato
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['Modificado', 'Cerrado', 'Terminado', 'Cedido', 'Suspendido', 'En ejecución']
+              config:
+                severity: warn

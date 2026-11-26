@@ -1,0 +1,14 @@
+name: secop
+version: "1.0.0"
+profile: secop
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  secop:
+    silver:
+      +schema: silver
+    gold:
+      +schema: gold

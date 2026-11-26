@@ -1,0 +1,14 @@
+secop:
+  target: dev
+  outputs:
+    dev: &databricks
+      type: databricks
+      catalog: workspace
+      schema: secop_dev_silver
+      host: "{{ env_var('DBT_DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DBT_DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DBT_DATABRICKS_TOKEN') }}"
+      threads: 4
+    prod:
+      <<: *databricks
+      schema: secop_prod_silver
