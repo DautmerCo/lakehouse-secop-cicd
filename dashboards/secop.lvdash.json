@@ -47,9 +47,9 @@
               "encodings": {
                 "text": {
                   "lines": [
-                    "# <span style=\"text-align:center;display:block;\">SECOP II Â· ContrataciÃ³n pÃºblica</span>\n",
+                    "# <span style=\"text-align:center;display:block;\">SECOP II · Contratación pública</span>\n",
                     "\n",
-                    "#### <span style=\"text-align:center;display:block;\">*Contratos con actividad en SECOP II desde el 1 de octubre de 2026. ActualizaciÃ³n diaria.*</span>"
+                    "#### <span style=\"text-align:center;display:block;\">*Contratos con actividad en SECOP II desde el 1 de octubre de 2026. Actualización diaria.*</span>"
                   ],
                   "fields": []
                 }
@@ -68,7 +68,7 @@
             "name": "5cbdaeb1",
             "queries": [
               {
-                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_anio_firma",
+                "name": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_anio_firma",
                 "query": {
                   "datasetName": "934a91ff",
                   "fields": [
@@ -88,14 +88,18 @@
             "spec": {
               "version": 2,
               "frame": {
-                "showTitle": true
+                "showTitle": true,
+                "title": {
+                  "value": "Año de firma",
+                  "fields": []
+                }
               },
-              "widgetType": "filter-single-select",
+              "widgetType": "filter-multi-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "anio_firma",
-                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_anio_firma"
+                    "queryName": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_anio_firma"
                   }
                 ]
               }
@@ -113,7 +117,7 @@
             "name": "792fc865",
             "queries": [
               {
-                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_departamento",
+                "name": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_departamento",
                 "query": {
                   "datasetName": "934a91ff",
                   "fields": [
@@ -133,14 +137,18 @@
             "spec": {
               "version": 2,
               "frame": {
-                "showTitle": true
+                "showTitle": true,
+                "title": {
+                  "value": "Departamento",
+                  "fields": []
+                }
               },
-              "widgetType": "filter-single-select",
+              "widgetType": "filter-multi-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "departamento",
-                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_departamento"
+                    "queryName": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_departamento"
                   }
                 ]
               }
@@ -158,7 +166,7 @@
             "name": "c824df2b",
             "queries": [
               {
-                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_tipo_compra",
+                "name": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_tipo_compra",
                 "query": {
                   "datasetName": "934a91ff",
                   "fields": [
@@ -178,14 +186,18 @@
             "spec": {
               "version": 2,
               "frame": {
-                "showTitle": true
+                "showTitle": true,
+                "title": {
+                  "value": "Tipo de compra",
+                  "fields": []
+                }
               },
-              "widgetType": "filter-single-select",
+              "widgetType": "filter-multi-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "tipo_compra",
-                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_tipo_compra"
+                    "queryName": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_tipo_compra"
                   }
                 ]
               }
@@ -203,7 +215,7 @@
             "name": "4a3b7dd4",
             "queries": [
               {
-                "name": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_orden",
+                "name": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_orden",
                 "query": {
                   "datasetName": "934a91ff",
                   "fields": [
@@ -223,14 +235,18 @@
             "spec": {
               "version": 2,
               "frame": {
-                "showTitle": true
+                "showTitle": true,
+                "title": {
+                  "value": "Orden",
+                  "fields": []
+                }
               },
-              "widgetType": "filter-single-select",
+              "widgetType": "filter-multi-select",
               "encodings": {
                 "fields": [
                   {
                     "fieldName": "orden",
-                    "queryName": "dashboards/01f1e9c2aba0153591a4ecc8223f469f/datasets/01f1e9c2b45b1e41979f292621f5c55d_orden"
+                    "queryName": "dashboards/01f1e9c84ad817319e77984bd8dc931f/datasets/01f1e9cb619f16679f8b1102818f82c2_orden"
                   }
                 ]
               }
@@ -328,12 +344,11 @@
                 "value": {
                   "fieldName": "sum(valor_mm)",
                   "format": {
-                    "type": "number-currency",
-                    "currencyCode": "COP",
+                    "type": "number-plain",
                     "abbreviation": "none",
                     "decimalPlaces": {
                       "type": "max",
-                      "places": 2
+                      "places": 0
                     }
                   }
                 }
@@ -373,7 +388,7 @@
                 "showTitle": true,
                 "showDescription": false,
                 "title": {
-                  "value": "<span style=\"text-align:center;display:block;\">% contrataciÃ³n directa</span>",
+                  "value": "<span style=\"text-align:center;display:block;\">% contratación directa</span>",
                   "fields": []
                 }
               },
@@ -486,7 +501,7 @@
               "frame": {
                 "showTitle": true,
                 "title": {
-                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Forma de adjudicaciÃ³n</span></span>",
+                  "value": "<span style=\"text-align:center;display:block;\"><span style=\"font-weight: 700;\">Forma de adjudicación</span></span>",
                   "fields": []
                 }
               },
@@ -518,7 +533,7 @@
                 },
                 "color": {
                   "fieldName": "forma_adjudicacion",
-                  "displayName": "Forma AdjudicaciÃ³n",
+                  "displayName": "Forma Adjudicación",
                   "scale": {
                     "type": "categorical"
                   }
@@ -676,7 +691,7 @@
             "x": 0,
             "y": 11,
             "width": 6,
-            "height": 6
+            "height": 10
           }
         },
         {
@@ -689,6 +704,10 @@
                   "datasetName": "934a91ff",
                   "fields": [
                     {
+                      "name": "valor_mm",
+                      "expression": "`valor_mm`"
+                    },
+                    {
                       "name": "entidad",
                       "expression": "`entidad`"
                     },
@@ -699,14 +718,6 @@
                     {
                       "name": "segmento",
                       "expression": "`segmento`"
-                    },
-                    {
-                      "name": "modalidad",
-                      "expression": "`modalidad`"
-                    },
-                    {
-                      "name": "valor_mm",
-                      "expression": "`valor_mm`"
                     },
                     {
                       "name": "fecha_firma",
@@ -740,6 +751,19 @@
               "encodings": {
                 "columns": [
                   {
+                    "fieldName": "valor_mm",
+                    "format": {
+                      "type": "number-plain",
+                      "abbreviation": "none",
+                      "decimalPlaces": {
+                        "type": "exact",
+                        "places": 1
+                      },
+                      "hideGroupSeparator": true
+                    },
+                    "displayName": "Valor (mil M COP)"
+                  },
+                  {
                     "fieldName": "entidad"
                   },
                   {
@@ -747,12 +771,6 @@
                   },
                   {
                     "fieldName": "segmento"
-                  },
-                  {
-                    "fieldName": "modalidad"
-                  },
-                  {
-                    "fieldName": "valor_mm"
                   },
                   {
                     "fieldName": "fecha_firma"
@@ -765,7 +783,7 @@
                   {
                     "by": "column-reversed",
                     "field": {
-                      "index": 4
+                      "index": 0
                     }
                   }
                 ]
@@ -779,7 +797,7 @@
             "x": 6,
             "y": 11,
             "width": 6,
-            "height": 6
+            "height": 10
           }
         }
       ],
